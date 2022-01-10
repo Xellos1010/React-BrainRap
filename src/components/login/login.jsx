@@ -1,6 +1,8 @@
 import React from "react";
 import loginImg from "../../login.svg";
 
+import './style.scss';
+
 export class Login extends React.Component {
   constructor(props) {
     super(props);
