@@ -4,6 +4,7 @@ import "./style.scss";
 import React from "react";
 export { Login } from "./login";
 export { Register } from "./register";
+export { PricingPlans } from "./pricing-plans";
 export { Start } from "./start";
 export { Landing } from "./landing";
 

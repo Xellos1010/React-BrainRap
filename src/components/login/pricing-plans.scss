@@ -1,0 +1,447 @@
+/* Pricing Plans Page Styles */
+/* Splash Container */
+
+.splash-container {
+  float: left;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  height: 135px;
+  align-items: center;
+  margin: 0 auto;
+  /* margin: 57px 430px 96px 446px;
+  padding: 26px 51px 17px 52px; */
+}
+
+.splash-container > span{
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  font-family: Inter;
+}
+/* Splash Container */
+.splash-title {
+  height: 48px;
+  font-size: 48px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.06px;
+  color: #231d4f;
+}
+
+.splash-subtitle {
+  height: 24px;
+  margin: 20px 143px 0;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.25px;
+  color: #000;
+}
+/* Card Container and content */
+.Card{
+  flex-direction: column;
+}
+.card-left-title-container
+{
+  width:100%;
+}
+.card-title {
+  width: 100%;
+}
+form.signin
+{
+    width: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+}
+form.signin label
+{
+  width: 100%;
+  float: left;
+  height: 24px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: -0.08px;
+  text-align: left;
+  color: #252c32;
+  
+}
+form.signin input
+{
+  width: 100%;
+  float: left;
+}
+
+.form-column > div {    /*  increased specificity  */
+  flex-direction: column;
+}
+
+/* Used at the bottom of landing page */
+.btn-join {
+  float: left;
+  width:90.5%;
+  height: 40px;
+  margin: 14px 0 0 0;
+  border-radius: 6px;
+  background-color: #5b6871;
+}
+
+.btn-join-title {
+  float: left;
+
+  width: 183px;
+  height: 24px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: -0.08px;
+  text-align: center;
+  color: #f6f8f9;
+}
+
+.btn-signin-form
+{
+  float: left;
+  width:100%;
+  height: 40px;
+  margin: 14px 0 0 0;
+  border-radius: 6px;
+  background-color: #5b6871;
+  justify-content: center;
+}
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+/* Style inputs, select elements and textareas */
+input[type=password], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+/* Style the container */
+.container {
+    float: left;
+    flex-direction: row;
+  border-radius: 5px;
+  
+}
+
+/* Floating column for labels: 25% width */
+.col-100 {
+  float: left;
+  width: 100%;
+}
+/* Clear floats after the columns */
+.col:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Card-left {
+    float: left;
+    width: 65%;
+    height: 336px;
+    border-radius: 16px;
+    display:flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(91, 104, 113, 0.24), 0 0 1px 0 rgba(26, 32, 36, 0.32);
+    background-color: #fff;
+    margin: 0 2% 0 0;
+    /* padding: 28px 33px 42px 24px;  */
+  }
+
+  .Card-right {
+    float: left;
+    width: 100%;
+    height: 336px;
+    display:flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 0 rgba(91, 104, 113, 0.24), 0 0 1px 0 rgba(26, 32, 36, 0.32);
+    background-color: #fff;
+    /* margin: 10px 368px 26px;
+    padding: 28px 33px 42px 24px; */
+  }
+.card-container-row
+{
+  float: left;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+
+.card-container-left
+{
+  float: left;
+  max-width: 688px; 
+    margin: 0 auto; 
+    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.card-container-right
+{
+  float: left;
+  width: 100%; 
+    margin: 0 auto; 
+    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.container > div{
+    float: left;
+    width: 33%;
+}
+
+.card-title-row-container{
+  width:100%;
+  display: flex;
+  padding: 0 0 0 0;
+  justify-content: space-between;
+}
+
+.card-title-row{
+    float: right;
+    width: 62%;
+    margin: 2.5% 0 0 2.5%;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.79px;
+    text-align: left;
+    color: #000;
+}
+
+.Badge {
+    float: right;
+    width: 25%;
+    margin: 0 0 0 0;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* margin: 40px 24px; */
+    /* padding: 4px 12px; */
+    border-radius: 6px;
+    background-color: #d5dadd;
+  }
+
+  .card-left-subtitle{
+    margin: 2.5% 0 0 5%;
+    width:100%;
+    float: left;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: -0.08px;
+    text-align: left;
+    color: #5b6871;
+  }
+
+.card-right-subtitle{
+  margin: 2.5% 0 0 2.5%;
+  width:100%;
+  float: left;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -0.08px;
+  text-align: left;
+  color: #5b6871;
+}
+
+.card-title-row-2 {
+  float: right;  
+  width: 100%;
+  padding: 5% 5% 0 0;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 1.71; */
+    letter-spacing: -0.08px;
+    text-align: center;
+    color: #1a2024;
+  }
+  .annual-btns-container
+  {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 0 7% 0;
+  }
+  .annual-btn {
+      float: left;
+      height: 40px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 0 0;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: #5b6871;
+  }
+  .width-btn1{
+    width: 50%
+  }
+  .width-btn2{
+    width: 35%
+  
+  }
+.free-btn{
+    float: left;
+    height: 40px;
+    width: 40%;
+    margin: 0 0 10% 10%;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+  }
+
+.free-btn-Title
+{
+  height: 24px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: -0.08px;
+  text-align: center;
+  color: #252c32;
+}
+
+  .Button-title
+  {
+    height: 24px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: -0.08px;
+    text-align: center;
+    color: #f6f8f9;
+  }
+  .service-lists-container{
+    display:flex;
+    width:100%;
+    margin:6% 0 0 0;
+  }
+
+  .service-list-container{
+    display:flex;
+    width:100%;
+    margin:15% 0 0 0;
+  }
+
+  .service-list2{
+    // width: 100%;
+    margin:0 0 0 0;
+    // padding: 0 0 0 15%;
+    list-style-position: outside; 
+    list-style-image: url("../../img/Check.svg");
+ li{
+     text-align:left;
+      margin:0 0 2% 0;
+  }
+}
+
+  ul.service-list{
+    width: 100%;
+    margin:0 0 0 0;
+    // padding: 0 0 0 15%;
+    list-style-position: outside; 
+    list-style-image: url("../../img/Check.svg");
+ li{
+     text-align:left;
+      margin:0 0 2% 0;
+  }
+  }
+  ul.service-list-row-item{
+    margin:0 8% 0 0;
+    // padding: 0 0 0 15%;
+    list-style-position: outside; 
+    list-style-image: url("../../img/Check.svg");
+ li{
+     text-align:left;
+      margin:0 0 2% 0;
+  }
+  }
+  .card-left-contents
+  {
+    display:flex;
+    flex-direction: column;
+  }

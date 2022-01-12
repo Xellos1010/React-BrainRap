@@ -6,6 +6,22 @@ body {
   width: 100%;
   font-family: Inter;
 }
+
+.Frame {
+  float: left;
+  justify-content: flex-start; 
+  /* margin: 6px 0 14px 119px;
+  padding: 13px 13px 13px 13px; */
+}
+
+.frame-img
+{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  justify-content: flex-start; 
+}
+
 .Brainrap-V1 {
   width: 100%;
   background-color: #fafafa;

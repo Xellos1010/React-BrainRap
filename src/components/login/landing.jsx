@@ -1,33 +1,50 @@
 import React from "react";
-import {Header,Footer, Login, Register, Start} from "./index";
+import {Header,Footer, Login,PricingPlans, Register, Start} from "./index";
 import './style.scss';
 // import './landing.scss';
 
 
 export class Landing extends React.Component {
   constructor(props) {
+    const pageLoaded = null;
     super(props);
     this.loginRegisterWrapper = React.createRef()
     this.headerFunc = React.createRef()
     this.footerFunc = React.createRef()
     this.state = {
+      currentState:"initial",
       isInitialState: true,
-      isLoginActive: false
+      isLoginActive: false,
+      isRegisterFree: false,
+      isRegisterPaid: false
     }
   }
 
-
+  setHeaderPageLoaded() {
+    console.log("state isInitialState("+this.state.isInitialState+")");
+    this.setHeaderFooterCurrentFunc();
+    this.setPageLoaded();
+  }
 
   toggleStateInitialize() {
-    this.setState((state) => ({isInitialState: !this.state.isInitialState}));
+    console.log("toggling state isInitialState("+this.state.isInitialState+")");
+    this.setState((state) => ({isInitialState: !this.state.isInitialState}),this.setHeaderPageLoaded);
   }
 
   toggleStateSignin() {
+    console.log("toggling state isLogginActive("+this.state.isLogginActive+")");
     //this.LoginRegisterWrapper.setState((state) => ({isLoginActive: true}));
-    this.setState((state) => ({isLogginActive:!this.state.isLogginActive}));
-    
+    this.setState((state) => ({isLogginActive:!this.state.isLogginActive}),this.setPageLoaded);
   }
+  
+    toggleRegisterFree(){
+      this.setState((state) => ({isRegisterFree:!this.state.isRegisterFree}));  
+    }
 
+    toggleRegisterPaid(){
+      this.setState((state) => ({isRegisterPaid:!this.state.isRegisterPaid})); 
+      console.log("is register paid = " + this.state.isRegisterPaid)
+    }
   getHeaderButtonTitle() {
     if(this.state.isInitialState)
       return "Join";
@@ -50,19 +67,42 @@ export class Landing extends React.Component {
     return this.state.isLoginActive ? "Dont have an account?" : "Already have an account?";    
       }
 
-  getPageLoaded(isInitialState, pageLoaded, isLoginActive) {
-    if (isInitialState) {
-      pageLoaded = <Start containerRef={ref => (this.current = ref)}/>;
-    }
-    else if (!isInitialState && !isLoginActive) {
-      // Pass button onclicks to sub process
-      pageLoaded = <Register containerRef={ref => (this.current = ref)} />;
-    }
-    else if (!isInitialState && isLoginActive) {
-      pageLoaded = <Login containerRef={ref => (this.current = ref)} />;
-    }
-    return pageLoaded;
+  getPageLoaded() {
+    this.setPageLoaded();
+    return this.pageLoaded;
   }
+
+  setPageLoaded() {
+    console.log(
+      "this.state.isInitialState = " + this.state.isInitialState +
+      "this.state.isLoginActive = " + this.state.isLoginActive +
+      "this.state.isRegisterFree = " + this.state.isRegisterFree +
+      "this.state.isRegisterPaid = " + this.state.isRegisterPaid
+    );
+    if (this.state.isInitialState) {
+      console.log("Page loaded = start");
+      this.pageLoaded = <Start containerRef={ref => (this.current = ref)} />;
+    }
+    else if ((!this.state.isInitialState && !this.state.isLoginActive) && !(this.state.isRegisterPaid || this.state.isRegisterFree)) {
+      // Pass button onclicks to sub process
+      console.log("Page loaded = Pricing Plans");
+      this.pageLoaded = <PricingPlans
+        containerRef={ref => (this.current = ref)}
+        onClickFree={this.toggleRegisterFree.bind(this)}
+        onClickPaid={this.toggleRegisterPaid.bind(this)} />;
+    }
+    else if ((!this.state.isInitialState && !this.state.isLoginActive) && this.state.isRegisterPaid) {
+      console.log("Page loaded = Register Paid");
+      // Pass button onclicks to sub process
+      this.pageLoaded = <Register
+        containerRef={ref => (this.current = ref)} />;
+    }
+    else if (!this.state.isInitialState && this.state.isLoginActive) {
+      console.log("Page Loaded = Login");
+      this.pageLoaded = <Login containerRef={ref => (this.current = ref)} />;
+    }
+  }
+
   // syncs the animated card element with login and register class names
   syncAnimatedCardDisplay() {
     // Toggles the login state
@@ -80,18 +120,25 @@ export class Landing extends React.Component {
   }
     //Always start on the start page - TODO in future track which page user left off on
   componentDidMount() {
-    this.setState(state => ({isInitialState: true})) 
-    this.headerFunc.current = this.toggleStateInitialize.bind(this);
+    console.log("Landing Page mounted");
+    this.setState(state => ({isInitialState: true}),this.setHeaderFooterCurrentFunc)
+  }
+
+  setHeaderFooterCurrentFunc() {
+    console.log("Setting Header Footer current Functions");
+    if (this.state.isInitialState)
+      this.headerFunc.current = this.toggleStateInitialize.bind(this);
+    else //TODO refactor to include multiple states  
+      this.headerFunc.current = this.toggleStateSignin.bind(this);
     this.footerFunc.current = this.toggleStateSignin.bind(this);
   }
 
     render() {
-      // const { isLogginActive } = this.state;
-      const { isInitialState,isLoginActive } = this.state;
+      // const { isInitialState,isLoginActive,isRegisterFree,isRegisterPaid } = this.state;
       let pageLoaded;
       let header;
       let footer;
-
+      pageLoaded = this.getPageLoaded();
       header = <Header
       current={this.getHeaderButtonTitle()}
       currentSub = {this.getHeaderSubTitle()}
@@ -101,11 +148,8 @@ export class Landing extends React.Component {
      footer = <Footer
      current={this.getFooterButtonTitle()}
      currentSub = {this.getFooterSubTitle()}
-     onClick ={this.footerFunc.current}
+     onClick ={() => this.footerFunc.current()}
      />
-// Temporary page load manager TODO research optimized approach
-    //  Initialize Page Loaded
-      pageLoaded = this.getPageLoaded(isInitialState, pageLoaded, isLoginActive);
       return (
         <div className="Brainrap-V1">
           {header}
