@@ -10,29 +10,49 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
-        <div className="header">Login</div>
-        <div className="content">
-          <div className="image">
-            <img src={loginImg} />
-          </div>
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="username" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
-            </div>
-          </div>
-        </div>
-        <div className="footer">
-          <button type="button" className="btn">
-            Login
-          </button>
-        </div>
-      </div>
+      <div>
+      {/* <div class="card-container"> */}
+        {/* <div className="base-container" ref={this.props.containerRef}> */}
+{/* <!-- Cards need to be refactored so we can swap between htmls --> */}
+{/* <!-- Card Container --> */}
+{/* <!-- Card Header --> */}
+
+  {/* <!-- Card --> */}
+<div class="Card">
+<span class="card-title">
+  Sign-in
+</span>
+
+<form class="sign-in" action="#">
+<div class="col">
+  <div class="col-100">
+    <label for="email">Email</label>
+  </div>
+  <div class="col-100">
+    <input type="text" id="email" name="email" placeholder="Enter email..."/>
+  </div>
+</div>
+<div class="col">
+  <div class="col-100">
+    <label for="pass">Password</label>
+  </div>
+  <div class="col-100">
+    <input type="password" id="pass" name="pass" placeholder="Enter password..."/>
+  </div>
+</div>
+</form>
+    <button class="btn-signin-form" >
+  <span class="btn-signin-title">
+    Sign In
+  </span>
+  </button>
+  {/* <!-- Button Below Card --> */}
+</div>
+  <span class="card-footer">
+  Don't have an account? <u> Sign-up and create your account</u>
+  </span>
+</div>
+// </div>
     );
   }
 }
