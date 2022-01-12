@@ -14,6 +14,7 @@ export class PricingPlans extends React.Component {
   render() {
     return (
     <div className="base-container" ref={this.props.containerRef}>
+      <div className="card-container">
       <div className="splash-container">
 {/* <!-- Splash Container --> */}
       <span className="splash-title">
@@ -33,7 +34,7 @@ export class PricingPlans extends React.Component {
 <div className="Card-left">
     <div className="card-left-contents">
     <div className="card-left-title-container">
-<span className="card-title">
+<span className="card-title-left">
   Free Plans
 </span>
 <span className="card-left-subtitle">
@@ -56,7 +57,7 @@ export class PricingPlans extends React.Component {
  </ul>
 </div>
 </div>
-    <button className = "free-btn">
+    <button className = "free-btn" onClick={this.props.onClickFree}>
     <span className="free-btn-Title">
     Sign up for free
     </span>
@@ -125,6 +126,7 @@ Sign up for an annual subscription and save
 </div>
 </div>
 </div>  
+</div>
 </div>  
 </div>  
     );

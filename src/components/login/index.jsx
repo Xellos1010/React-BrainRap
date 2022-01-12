@@ -3,7 +3,9 @@ import "./style.scss";
 
 import React from "react";
 export { Login } from "./login";
-export { Register } from "./register";
+export { AnnualBillingSignup} from "./annual-billing-signup";
+export { RegisterFree} from "./register-free";
+export { RegisterPaid} from "./register-paid";
 export { PricingPlans } from "./pricing-plans";
 export { Start } from "./start";
 export { Landing } from "./landing";

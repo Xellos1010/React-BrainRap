@@ -1,5 +1,5 @@
 import React from "react";
-import {Header,Footer, Login,PricingPlans, Register, Start} from "./index";
+import {Header,Footer, Login,PricingPlans, RegisterPaid,RegisterFree, Start,AnnualBillingSignup} from "./index";
 import './style.scss';
 // import './landing.scss';
 
@@ -12,59 +12,45 @@ export class Landing extends React.Component {
     this.headerFunc = React.createRef()
     this.footerFunc = React.createRef()
     this.state = {
-      currentState:"initial",
-      isInitialState: true,
-      isLoginActive: false,
-      isRegisterFree: false,
-      isRegisterPaid: false
+      currentState: 0
     }
+  }
+
+  setupPageLoaded()
+  {
+    console.log("setting up page loaded state = "+this.state.isInitialState+")");
+    this.setHeaderFooterCurrentFunc();
+    this.setPageLoaded();
+
   }
 
   setHeaderPageLoaded() {
-    console.log("state isInitialState("+this.state.isInitialState+")");
-    this.setHeaderFooterCurrentFunc();
-    this.setPageLoaded();
   }
 
-  toggleStateInitialize() {
-    console.log("toggling state isInitialState("+this.state.isInitialState+")");
-    this.setState((state) => ({isInitialState: !this.state.isInitialState}),this.setHeaderPageLoaded);
+  setStateTo(stateTo){
+    console.log("setting state to "+stateTo);
+    this.setState((state) => ({currentState: stateTo}),this.setupPageLoaded);  
   }
-
-  toggleStateSignin() {
-    console.log("toggling state isLogginActive("+this.state.isLogginActive+")");
-    //this.LoginRegisterWrapper.setState((state) => ({isLoginActive: true}));
-    this.setState((state) => ({isLogginActive:!this.state.isLogginActive}),this.setPageLoaded);
-  }
-  
-    toggleRegisterFree(){
-      this.setState((state) => ({isRegisterFree:!this.state.isRegisterFree}));  
-    }
-
-    toggleRegisterPaid(){
-      this.setState((state) => ({isRegisterPaid:!this.state.isRegisterPaid})); 
-      console.log("is register paid = " + this.state.isRegisterPaid)
-    }
   getHeaderButtonTitle() {
-    if(this.state.isInitialState)
+    if(this.state.currentState == 0)
       return "Join";
     else
-    return this.state.isLoginActive ? "Register" : "Login";
+    return this.state.currentState == 4 ? "Register" : "Login";
   }
 
   getHeaderSubTitle() {
-    if(this.state.isInitialState)
+    if(this.state.currentState == 0)
       return "Dont have an account?";
     else
-      return this.state.isLoginActive ? "Dont have an account?" : "Already have an account?";
+      return this.state.currentState == 4 ? "Dont have an account?" : "Already have an account?";
       }
    
   getFooterButtonTitle() {
-    return this.state.isLoginActive ? "Sign up and create your account" : "Sign in and manage your account";
+    return this.state.currentState == 4 ? "Sign up and create your account" : "Sign in and manage your account";
   }
   
   getFooterSubTitle() {
-    return this.state.isLoginActive ? "Dont have an account?" : "Already have an account?";    
+    return this.state.currentState == 4 ? "Dont have an account?" : "Already have an account?";    
       }
 
   getPageLoaded() {
@@ -74,42 +60,51 @@ export class Landing extends React.Component {
 
   setPageLoaded() {
     console.log(
-      "this.state.isInitialState = " + this.state.isInitialState +
-      "this.state.isLoginActive = " + this.state.isLoginActive +
-      "this.state.isRegisterFree = " + this.state.isRegisterFree +
-      "this.state.isRegisterPaid = " + this.state.isRegisterPaid
+      "this.state.currentState = " + this.state.currentState
     );
-    if (this.state.isInitialState) {
+    if (this.state.currentState == 0) {
       console.log("Page loaded = start");
       this.pageLoaded = <Start containerRef={ref => (this.current = ref)} />;
     }
-    else if ((!this.state.isInitialState && !this.state.isLoginActive) && !(this.state.isRegisterPaid || this.state.isRegisterFree)) {
+    else if (this.state.currentState == 1) {
       // Pass button onclicks to sub process
       console.log("Page loaded = Pricing Plans");
       this.pageLoaded = <PricingPlans
         containerRef={ref => (this.current = ref)}
-        onClickFree={this.toggleRegisterFree.bind(this)}
-        onClickPaid={this.toggleRegisterPaid.bind(this)} />;
+        onClickFree={ () => this.setStateTo(2)}
+        onClickPaid={() => this.setStateTo(3)} />;
     }
-    else if ((!this.state.isInitialState && !this.state.isLoginActive) && this.state.isRegisterPaid) {
+    else if (this.state.currentState == 2) {
+      console.log("Page loaded = Register Free");
+      // Pass button onclicks to sub process
+      this.pageLoaded = <RegisterFree
+        containerRef={ref => (this.current = ref)} 
+        //TODO add sent you an email screen onClick
+        />;
+    }
+    else if (this.state.currentState == 3) {
       console.log("Page loaded = Register Paid");
       // Pass button onclicks to sub process
-      this.pageLoaded = <Register
-        containerRef={ref => (this.current = ref)} />;
+      this.pageLoaded = <RegisterPaid
+        containerRef={ref => (this.current = ref)} 
+        onSignUpClick = {() => this.setStateTo(5)}
+        />;
     }
-    else if (!this.state.isInitialState && this.state.isLoginActive) {
+    else if (this.state.currentState == 4) {
       console.log("Page Loaded = Login");
       this.pageLoaded = <Login containerRef={ref => (this.current = ref)} />;
+    }
+    else if (this.state.currentState == 5) {
+      console.log("Page Loaded = Payment Processing");
+      this.pageLoaded = <AnnualBillingSignup containerRef={ref => (this.current = ref)} />;
     }
   }
 
   // syncs the animated card element with login and register class names
   syncAnimatedCardDisplay() {
-    // Toggles the login state
-    //this.setState(state => ({ isLogginActive: !state.isLogginActive}));
-    // const { isLoginActive: isLogginActive } = this.state;
-    const isLoginActive = this.state.isLoginActive;
-    if (isLoginActive) {
+    // Toggles the login state animation tag
+    //4 is default login screen - todo animate later
+    if (this.state.current == 4) {
       // Mounts the left or the right side button
       this.rightSide.classList.remove("right");
       this.rightSide.classList.add("left");
@@ -126,11 +121,14 @@ export class Landing extends React.Component {
 
   setHeaderFooterCurrentFunc() {
     console.log("Setting Header Footer current Functions");
-    if (this.state.isInitialState)
-      this.headerFunc.current = this.toggleStateInitialize.bind(this);
-    else //TODO refactor to include multiple states  
-      this.headerFunc.current = this.toggleStateSignin.bind(this);
-    this.footerFunc.current = this.toggleStateSignin.bind(this);
+    if (this.state.currentState == 0)
+      this.headerFunc.current = () => this.setStateTo(1);
+    else if(this.state.currentState == 4) //TODO refactor to include multiple states  
+      this.headerFunc.current = () => this.setStateTo(1);
+    else
+    //TODO refactor - can see the potential to break
+      this.headerFunc.current = () => this.setStateTo(4);
+    this.footerFunc.current = () => this.setStateTo(4);
   }
 
     render() {

@@ -2,6 +2,7 @@ import React from "react";
 import loginImg from "../../login.svg";
 
 import './style.scss';
+import './login.scss';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -11,46 +12,46 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-      {/* <div class="card-container"> */}
+      {/* <div className="card-container"> */}
         {/* <div className="base-container" ref={this.props.containerRef}> */}
 {/* <!-- Cards need to be refactored so we can swap between htmls --> */}
 {/* <!-- Card Container --> */}
 {/* <!-- Card Header --> */}
 
   {/* <!-- Card --> */}
-<div class="Card">
-<span class="card-title">
+<div className="Card">
+<span className="card-title">
   Sign-in
 </span>
-
-<form class="sign-in" action="#">
-<div class="col">
-  <div class="col-100">
-    <label for="email">Email</label>
+<div className="signin-container">
+<form className="sign-in" action="#">
+<div className="col">
+  <div className="col-100">
+  {/* for="email" */}
+    <label >Email</label>
   </div>
-  <div class="col-100">
+  <div className="col-100">
     <input type="text" id="email" name="email" placeholder="Enter email..."/>
   </div>
 </div>
-<div class="col">
-  <div class="col-100">
-    <label for="pass">Password</label>
+<div className="col">
+  <div className="col-100">
+  {/* for="pass" */}
+    <label >Password</label>
   </div>
-  <div class="col-100">
+  <div className="col-100">
     <input type="password" id="pass" name="pass" placeholder="Enter password..."/>
   </div>
 </div>
 </form>
-    <button class="btn-signin-form" >
-  <span class="btn-signin-title">
+    <button className="btn-signin-form" >
+  <span className="btn-signin-title">
     Sign In
   </span>
   </button>
+  </div>
   {/* <!-- Button Below Card --> */}
 </div>
-  <span class="card-footer">
-  Don't have an account? <u> Sign-up and create your account</u>
-  </span>
 </div>
 // </div>
     );

@@ -8,9 +8,7 @@
   justify-content: space-around;
   height: 135px;
   align-items: center;
-  margin: 0 auto;
-  /* margin: 57px 430px 96px 446px;
-  padding: 26px 51px 17px 52px; */
+  margin: 5% 5% 0 5%;
 }
 
 .splash-container > span{
@@ -55,6 +53,22 @@
 .card-title {
   width: 100%;
 }
+.card-title-left {
+  margin: 5% 0 0 5%;
+  width:100%;
+  float: left;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.79px;
+  text-align: left;
+  color: #000;
+
+}
+
 form.signin
 {
     width: 100%;

@@ -2,7 +2,7 @@ import React from "react";
 import loginImg from "../../login.svg";
 import './style.scss';
 
-export class RegisterPaid extends React.Component {
+export class RegisterFree extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -15,7 +15,7 @@ export class RegisterPaid extends React.Component {
   {/* <!-- Card --> */}
 <div className="Card">
 <span className="card-title">
-  Paid Plan
+  Free Plan
 </span>
 
 {/* <!-- Sign-in Form Card --> */}
@@ -89,7 +89,7 @@ export class RegisterPaid extends React.Component {
     </div>
     </form>
 </div>
-    <button className="btn-signin-form" onClick={this.props.onSignUpClick} >
+    <button className="btn-signin-form" onClick={this.props.onSignUpClick}>
   <span className="Button-title">
     Sign up
   </span>
