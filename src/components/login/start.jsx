@@ -110,8 +110,8 @@ export class Start extends React.Component {
 </div>
 </div>
   {/* <!-- Button Below Card --> */}
-// </div>
-// </div>
+ </div>
+ </div>
     );
   }
 }

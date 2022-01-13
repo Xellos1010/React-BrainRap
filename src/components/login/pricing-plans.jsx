@@ -28,7 +28,7 @@ export class PricingPlans extends React.Component {
       <img src={logoImg} alt="BrainRap"/>
       </div> */}
       </div>
-      <div className="cards-container-left">
+      {/* <div className="cards-container-left"> */}
 <div className="card-container-row">
 {/* <!-- Holds the list of services that are free --> */}
 <div className="Card-left">
@@ -63,22 +63,30 @@ export class PricingPlans extends React.Component {
     </span>
     </button>
 </div>
-<div className="card-container-right">
+{/* <div className="card-container-right"> */}
 <div className="Card-right">
-<div className="card-left-contents">
+
+<div className="card-right-content">
     <div className="card-title-row-container">
+      <div className="card-right-title-container">
 <span className="card-title-row backgroundaquamarine">
   Paid Plans
 </span>
+<span className="card-right-subtitle">
+  {"Save money with annual subscription"}
+</span>
+</div>
+<div className="Badge-container">
 <div className="Badge">
 <span className="card-title-row-2 backgroundaqua">
   Recommended
 </span>
 </div>
+
+
+
 </div>
-<span className="card-right-subtitle">
-Sign up for an annual subscription and save
-</span>
+</div>
 <div className="service-lists-container">
 {/* <!-- Unordered list services -->  */}
 <ul className="service-list-row-item">
@@ -108,24 +116,24 @@ Sign up for an annual subscription and save
   </li>
  </ul>
 </div>
-</div>
+{/* </div> */}
 {/* <!-- Hold the 2 buttons at bottom of right card --> */}
+</div>
 <div className="annual-btns-container">
 <button className="annual-btn width-btn1" onClick={this.props.onClickPaid}>
 <span className="Button-title">
-  Sign up for annual subscription plan ($2,500)
+  Annual Subscription
 </span>
 </button>
 {/* TODO Setup Paypal Button */}
-<button className="annual-btn width-btn2" onClick={this.props.onClickPaid}>
-<span className="Button-title">
-  Pay with Zip
+<button className="annual-btn-context width-btn2" onClick={this.props.onClickPaid}>
+<span className="payment-context">
+  Pay with Paypal!
 </span>
 </button>
 </div>
 </div>
-</div>
-</div>  
+{/* </div>   */}
 </div>
 </div>  
 </div>  

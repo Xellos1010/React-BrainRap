@@ -45,7 +45,7 @@ export class Login extends React.Component {
 </div>
 </form>
     <button className="btn-signin-form" >
-  <span className="btn-signin-title">
+  <span className="Button-title">
     Sign In
   </span>
   </button>
