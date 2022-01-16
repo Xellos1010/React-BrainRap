@@ -17,64 +17,64 @@ export class Start extends React.Component {
 <div className="card-header">
 {/* <div className="card-header-list backgroundcadetblue"> */}
 <div className="service-container">
-  <span className="service">
-<label className="card-header-label backgroundaquamarine">
+  <div className="service">
+<span className="card-header-label backgroundaquamarine">
   Artists
-</label>
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 {/* </div> */}
 {/* <div className="card-header-list"> */}
-<span className="service">
-<label className="card-header-label backgroundaquamarine">
+<div className="service">
+<span className="card-header-label backgroundaquamarine">
   Albums
-</label>
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 {/* </div> */}
 {/* <div className="card-header-list"> */}
-<span className="service">
-<label className="card-header-label backgroundaquamarine">
+<div className="service">
+<span className="card-header-label backgroundaquamarine">
   Songs
-</label>
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 {/* </div> */}
 {/* <div className="card-header-list"> */}
-<span className="service">
-<label className="card-header-label backgroundaquamarine">
+<div className="service">
+<span className="card-header-label backgroundaquamarine">
   Impressions
-</label>
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 {/* </div> */}
 {/* <div className="card-header-list"> */}
-<span className="service">
-<label className="card-header-label backgroundaquamarine">
-  Gross $
-</label>
+<div className="service">
+<span className="card-header-label backgroundaquamarine">
+  Gross$
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 {/* </div> */}
 {/* <div className="card-header-list"> */}
-<span className="service">
-<label className="card-header-label backgroundaquamarine">
-  Top $ Paid
-</label>
+<div className="service">
+<span className="card-header-label backgroundaquamarine">
+  Top$
+</span>
 <span className="card-header-text backgroundaquamarine">
   #####
 </span>
-</span>
+</div>
 </div>
 </div>
 
@@ -82,12 +82,14 @@ export class Start extends React.Component {
   {/* <!-- Card --> */}
 <div className="Card">
 <div className="card-left">
+  <div className="card-title-container">
 <span className="card-title">
   Join
 </span>
 <span className="card-subtitle">
   Start creating right now
 </span>
+</div>
 <div className="card-list-container">
 {/* <!-- Unordered list services left side card -->  */}
 <ul className="card-list">

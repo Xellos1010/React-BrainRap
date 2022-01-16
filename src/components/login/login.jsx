@@ -20,9 +20,11 @@ export class Login extends React.Component {
 
   {/* <!-- Card --> */}
 <div className="Card">
+  <div className="card-title-container">
 <span className="card-title">
   Sign-in
 </span>
+</div>
 <div className="signin-container">
 <form className="sign-in" action="#">
 <div className="col">

@@ -14,10 +14,12 @@ export class RegisterPaid extends React.Component {
 
   {/* <!-- Card --> */}
 <div className="Card">
+<div className="card-title-container">
+
 <span className="card-title">
   Paid Plan
 </span>
-
+</div>
 {/* <!-- Sign-in Form Card --> */}
 
 <div className="container">

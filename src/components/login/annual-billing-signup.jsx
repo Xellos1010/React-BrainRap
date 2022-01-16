@@ -14,10 +14,12 @@ export class AnnualBillingSignup extends React.Component {
 
 // <!-- Card -->
 <div className="Card">
+<div className="card-title-container">
+  
 <span className="card-title">
 Annual Plan - Billing (2500)
 </span>
-
+</div>
 {/* <!-- Sign-in Form Card --> */}
 
 <div className="container">
